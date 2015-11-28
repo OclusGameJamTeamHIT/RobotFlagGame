@@ -37,7 +37,7 @@ public class CameraCtrl : MonoBehaviour {
         else
         {
             //真後ろ
-            transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1.3f, player.transform.position.z);
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1.3f, player.transform.position.z + 3f);
 
 
 
@@ -50,6 +50,7 @@ public class CameraCtrl : MonoBehaviour {
                                                 player.transform.rotation.y,
                                                 player.transform.rotation.z,
                                                 player.transform.rotation.w);
+
         }
     }
 }
