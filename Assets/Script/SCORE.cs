@@ -18,12 +18,12 @@ public class SCORE : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //if (Input.GetKeyDown(KeyCode.C))
-        //{
-        //    ScoreUp();
-        //    FlagGet();
-        //}
-        
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            ScoreUp();
+            FlagGet();
+        }
+
         //スコア描画処理
         g_Score.GetComponent<TextMesh>().text = "score : " + score;
         g_flag.GetComponent<TextMesh>().text = "Flag : " + flagCount;
@@ -32,12 +32,13 @@ public class SCORE : MonoBehaviour {
     //スコアをアップする処理
     public void ScoreUp() {
         score+=1000;
+        Debug.Log("スコアが増加しました");
     
     }
     //フラグを手に入れたら呼び出す関数
     public void FlagGet()
     {
         flagCount++;
-   
+        Debug.Log("フラグを獲得しました");
     }
 }
