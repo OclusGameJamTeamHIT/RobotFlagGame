@@ -35,7 +35,7 @@ public class RobotCtrl : MonoBehaviour {
 
             Vector3 vec = new Vector3(0, 0.0f, -1);
             //this.GetComponent<Rigidbody>().AddForce(vec * moveforce, ForceMode.Impulse);
-            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
+            this.GetComponent<Rigidbody>().AddForce(transform.forward * moveforce * 10, ForceMode.Impulse);
             //this.GetComponent<Rigidbody>().AddForce(transform.up * jumpforce / 5, ForceMode.Impulse);
 
             //this.GetComponent<Rigidbody>().velocity = vec * moveforce;
@@ -72,7 +72,7 @@ public class RobotCtrl : MonoBehaviour {
             //transform.position += transform.forward * -0.10f; // 移動
 
             Vector3 vec = new Vector3(0, 0.0f, 1);
-            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
+            this.GetComponent<Rigidbody>().AddForce(transform.forward * -1 * moveforce * 10, ForceMode.Impulse);
             //this.GetComponent<Rigidbody>().velocity = transform.forward.normalized * -50f;
 
             //this.GetComponent<Rigidbody>().AddForce(transform.up * jumpforce / 3, ForceMode.Impulse);
