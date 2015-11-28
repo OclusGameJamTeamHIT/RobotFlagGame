@@ -11,6 +11,7 @@ public class PressStart : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //PressStartを描画
         press.GetComponent<TextMesh>().text = "PRESS START";
 	}
 }

@@ -36,6 +36,7 @@ public class ControlGUIScript : MonoBehaviour {
 			//Value = GUI.HorizontalSlider(new Rect(GBS.Position.x + Offset.x , GBS.Position.y + Offset.y - 40, 180, 25), Value, 0.0F, 1F);
 		//}
 
+        //IsPlayingをtrueにするとブーストゲージが減ります
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKey(KeyCode.A)){
             IsPlaying = true;
         }
@@ -68,14 +69,19 @@ public class ControlGUIScript : MonoBehaviour {
 		if (IsPlaying == true)
 		{
             //GBS.Value = ((Mathf.Sin (Time.time)/2f) + 0.5f) * 1.01f;
+            //ブーストゲージを減少させる
             GBS.Value -= 0.01f;
+            //もし０以下になったら
             if (GBS.Value < 0.0f)
             {
+                //０で固定
                 GBS.Value = 0.0f;
             }
         }
-		else if(IsPlaying==false && GBS.Value<100.0f)
+        //最大値以外でIsPlayingがfalseなら
+		else if(IsPlaying==false && GBS.Value<1.0f)
 		{
+            //ゲージを回復させる
             GBS.Value +=0.01f ;
         }
 
