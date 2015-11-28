@@ -20,6 +20,12 @@ public class UnitychanCtrl : MonoBehaviour
 
 	bool gameOver = false;
 
+    // ジャンプする力
+    //public float force = 5.0f;
+    private int jumpCount = 0;
+    const int MAX_JUMP_COUNT = 2;
+
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -158,6 +164,17 @@ public class UnitychanCtrl : MonoBehaviour
             }
 
         }
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            if (jumpCount < MAX_JUMP_COUNT)
+            {
+                jumpCount++;
+                this.GetComponent<Rigidbody>().AddForce(transform.up * 10, ForceMode.Impulse);
+
+                Debug.Log("#### Jump");
+                animator.SetBool("is_jumping", true);
+            }
+        }
         else
         {
             animator.SetBool("is_running", false);
@@ -181,6 +198,17 @@ public class UnitychanCtrl : MonoBehaviour
             on_down = false;
         }
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Floor")
+        {
+            jumpCount = 0; // ジャンプ回数初期化
+            animator.SetBool("is_jumping", false);
+
+            Debug.Log("#### FloorCollision");
+        }
     }
 
     //private void OnTriggerEnter(Collider other)
