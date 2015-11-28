@@ -10,8 +10,8 @@ public class SceneChanger : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKeyDown ("Submit")) {
-			Application.LoadLevel ("nextScene");
+		if (Input.GetKeyDown (KeyCode.L)) {
+			Application.LoadLevel (nextScene);
 		}
 	}
 }
