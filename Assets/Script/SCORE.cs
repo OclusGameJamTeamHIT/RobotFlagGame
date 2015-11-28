@@ -5,8 +5,8 @@ public class SCORE : MonoBehaviour {
     //スコアの描画をするクラス
     public GameObject g_Score;
     public GameObject g_flag;
-    private long score;
-    private long flagCount;
+    private static long score;
+    private static long flagCount;
 
 	// Use this for initialization
 	void Start () {
@@ -18,11 +18,11 @@ public class SCORE : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            ScoreUp();
-            FlagGet();
-        }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    ScoreUp();
+        //    FlagGet();
+        //}
         
         //スコア描画処理
         g_Score.GetComponent<TextMesh>().text = "score : " + score;
@@ -30,14 +30,14 @@ public class SCORE : MonoBehaviour {
 	}
 
     //スコアをアップする処理
-    public long ScoreUp() {
+    public void ScoreUp() {
         score+=1000;
-        return score;
+    
     }
     //フラグを手に入れたら呼び出す関数
-    public long FlagGet()
+    public void FlagGet()
     {
         flagCount++;
-        return flagCount;
+   
     }
 }
