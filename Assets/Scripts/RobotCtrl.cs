@@ -49,21 +49,21 @@ public class RobotCtrl : MonoBehaviour {
         }
         else if (Input.GetKey("right"))
         {
-            Vector3 vec = new Vector3(-1, 0.0f, 0);
-            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
-            //this.GetComponent<Rigidbody>().velocity = transform.right.normalized * 50f;
+            //Vector3 vec = new Vector3(-1, 0.0f, 0);
+            //this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
 
-            //this.GetComponent<Rigidbody>().AddForce(transform.up * jumpforce / 3, ForceMode.Impulse);
+            Vector3 next = new Vector3(0, 3, 0);
+            transform.Rotate(next);
 
             animator.SetBool("is_running", true);
         }
         else if (Input.GetKey("left"))
         {
-            Vector3 vec = new Vector3(1, 0.0f, 0);
-            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
-            //this.GetComponent<Rigidbody>().velocity = transform.right.normalized * -50f;
+            //Vector3 vec = new Vector3(1, 0.0f, 0);
+            //this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
 
-            //this.GetComponent<Rigidbody>().AddForce(transform.up * jumpforce / 3, ForceMode.Impulse);
+            Vector3 next = new Vector3(0, -3, 0);
+            transform.Rotate(next);
 
             animator.SetBool("is_running", true);
         }
