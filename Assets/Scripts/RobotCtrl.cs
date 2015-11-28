@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class RobotCtrl : MonoBehaviour {
-    public GameObject camera;
+    public GameObject camera1;
     private Animator animator;
 
     bool gameOver = false;
@@ -20,7 +20,7 @@ public class RobotCtrl : MonoBehaviour {
 
     void Update()
     {
-        CameraCtrl camCtrl = camera.GetComponent<CameraCtrl>();
+        CameraCtrl camCtrl = camera1.GetComponent<CameraCtrl>();
 
         if (transform.position.y < 90.0f && !gameOver)
         {

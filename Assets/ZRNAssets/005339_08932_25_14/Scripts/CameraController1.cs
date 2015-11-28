@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CameraController : MonoBehaviour {
+public class CameraController1 : MonoBehaviour {
 
 	[SerializeField]
 	GameObject cameraObject;
