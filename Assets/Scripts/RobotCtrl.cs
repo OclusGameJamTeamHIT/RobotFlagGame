@@ -7,7 +7,7 @@ public class RobotCtrl : MonoBehaviour {
     bool gameOver = false;
 
     // ジャンプする力
-    public float jumpforce = 1f;
+    public float jumpforce = 0.1f;
     private int jumpCount = 0;
     const int MAX_JUMP_COUNT = 10;
 
@@ -35,7 +35,7 @@ public class RobotCtrl : MonoBehaviour {
 
             Vector3 vec = new Vector3(0, 0.0f, -1);
             //this.GetComponent<Rigidbody>().AddForce(vec * moveforce, ForceMode.Impulse);
-            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Force);
+            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
             //this.GetComponent<Rigidbody>().AddForce(transform.up * jumpforce / 5, ForceMode.Impulse);
 
             //this.GetComponent<Rigidbody>().velocity = vec * moveforce;
@@ -44,32 +44,40 @@ public class RobotCtrl : MonoBehaviour {
 
             //testObj.GetComponent<Rigidbody>().AddForce(vec * moveforce, ForceMode.VelocityChange);
             //testObj.GetComponent<Rigidbody>().AddExplosionForce(500.0f, new Vector3(0, 0.5f, 0), 10.0f);
+
+            animator.SetBool("is_running", true);
         }
         else if (Input.GetKey("right"))
         {
             Vector3 vec = new Vector3(-1, 0.0f, 0);
-            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Force);
+            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
             //this.GetComponent<Rigidbody>().velocity = transform.right.normalized * 50f;
 
             //this.GetComponent<Rigidbody>().AddForce(transform.up * jumpforce / 3, ForceMode.Impulse);
+
+            animator.SetBool("is_running", true);
         }
         else if (Input.GetKey("left"))
         {
             Vector3 vec = new Vector3(1, 0.0f, 0);
-            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Force);
+            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
             //this.GetComponent<Rigidbody>().velocity = transform.right.normalized * -50f;
 
             //this.GetComponent<Rigidbody>().AddForce(transform.up * jumpforce / 3, ForceMode.Impulse);
+
+            animator.SetBool("is_running", true);
         }
         else if (Input.GetKey("down"))
         {
             //transform.position += transform.forward * -0.10f; // 移動
 
             Vector3 vec = new Vector3(0, 0.0f, 1);
-            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Force);
+            this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
             //this.GetComponent<Rigidbody>().velocity = transform.forward.normalized * -50f;
 
             //this.GetComponent<Rigidbody>().AddForce(transform.up * jumpforce / 3, ForceMode.Impulse);
+
+            animator.SetBool("is_running", true);
         }
         else if (Input.GetKey(KeyCode.Space))
         {
@@ -84,7 +92,7 @@ public class RobotCtrl : MonoBehaviour {
         }
         else
         {
-            //animator.SetBool("is_running", false);
+            animator.SetBool("is_running", false);
         }
 
     }
