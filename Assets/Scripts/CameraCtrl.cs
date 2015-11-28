@@ -37,8 +37,8 @@ public class CameraCtrl : MonoBehaviour {
         else
         {
             //真後ろ
-            transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1.3f, player.transform.position.z + 3f);
-
+           transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1.3f, player.transform.position.z + 3f);
+			//transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 5.0f, player.transform.position.z + 3f);
 
 
             //Vector3 next = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
@@ -46,10 +46,10 @@ public class CameraCtrl : MonoBehaviour {
 
             //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles - diff);
 
-            transform.rotation = new Quaternion(player.transform.rotation.x,
-                                                player.transform.rotation.y,
-                                                player.transform.rotation.z,
-                                                player.transform.rotation.w);
+            //transform.rotation = new Quaternion(player.transform.rotation.x,
+            //                                    player.transform.rotation.y,
+            //                                    player.transform.rotation.z,
+            //                                    player.transform.rotation.w);
 
         }
     }
