@@ -17,6 +17,7 @@ public class PlayerCollider : MonoBehaviour {
 		if(other.tag=="Coin")
 			Destroy(other.gameObject);
 		SCORE sc = SC.GetComponent<SCORE>();
+		sc.FlagGet ();
 		sc.ScoreUp();
 		Debug.Log("当たったよ！");
 

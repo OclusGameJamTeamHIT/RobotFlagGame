@@ -15,19 +15,16 @@ public class Maze : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.A)) {
-			Gun = GameObject.Find ("assault_mech_LeftArmRocket");
+		if (Input.GetKeyDown (KeyCode.A)) 
+		{
+			Gun = GameObject.Find ("assault_mech_RightArmWeapon");
 			b2 = Instantiate (Bullet);
 			Debug.Log ("弾のインスタンスをしました");
 			b2.transform.position =Gun.transform.position;
-			b2.transform.rotation = Gun.transform.rotation;
-			BulletDirection = (this.transform.position - Gun.transform.position).normalized;
-			if (Physics.Raycast (b2.transform.position, BulletDirection, 50.0f)) {
-				b2.GetComponent<Rigidbody> ().velocity = BulletDirection * 50;
-			} else {
-				Debug.Log ("弾を削除します");
-				//Destroy (b2.gameObject);
-			}
-		}
+			//b2.transform.rotation = Gun.transform.rotation;
+			BulletDirection = (Gun.transform.position - transform.position).normalized;
+				b2.GetComponent<Rigidbody>().velocity = BulletDirection * 50;
+			
 	}
+}
 }
