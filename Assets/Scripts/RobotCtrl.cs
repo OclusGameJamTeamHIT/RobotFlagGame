@@ -29,7 +29,7 @@ public class RobotCtrl : MonoBehaviour {
         //}
 
 
-        if (Input.GetKey("up"))
+        if (Input.GetKey("up") || Input.GetAxis ("Vertical") > 0)
         {
             //transform.position += transform.forward * 0.10f; // 移動
 
@@ -47,7 +47,7 @@ public class RobotCtrl : MonoBehaviour {
 
             animator.SetBool("is_running", true);
         }
-        else if (Input.GetKey("right"))
+        else if (Input.GetKey("right") || Input.GetAxis ("Horizontal") > 0)
         {
             //Vector3 vec = new Vector3(-1, 0.0f, 0);
             //this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
@@ -57,7 +57,7 @@ public class RobotCtrl : MonoBehaviour {
 
             animator.SetBool("is_running", true);
         }
-        else if (Input.GetKey("left"))
+        else if (Input.GetKey("left") || Input.GetAxis("Horizontal") < 0)
         {
             //Vector3 vec = new Vector3(1, 0.0f, 0);
             //this.GetComponent<Rigidbody>().AddForce(vec * moveforce * 10, ForceMode.Impulse);
@@ -67,7 +67,7 @@ public class RobotCtrl : MonoBehaviour {
 
             animator.SetBool("is_running", true);
         }
-        else if (Input.GetKey("down"))
+        else if (Input.GetKey("down") || Input.GetAxis("Vertical") < 0)
         {
             //transform.position += transform.forward * -0.10f; // 移動
 
@@ -79,7 +79,7 @@ public class RobotCtrl : MonoBehaviour {
 
             animator.SetBool("is_running", true);
         }
-        else if (Input.GetKey(KeyCode.Space))
+        else if (Input.GetKey(KeyCode.J) || Input.GetAxis("Jump") > 0)
         {
             if (jumpCount < MAX_JUMP_COUNT)
             {
