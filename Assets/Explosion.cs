@@ -3,9 +3,10 @@ using System.Collections;
 
 public class Explosion : MonoBehaviour {
 	public GameObject Explo;
+	public GameObject cu2;
 	// Use this for initialization
 	void Start () {
-	
+		cu2 = GameObject.Find ("Cube");
 	}
 	
 	// Update is called once per frame
@@ -14,12 +15,12 @@ public class Explosion : MonoBehaviour {
 	}
 
 
-	void OnCollisionEnter(Collision col)
+	void OnCollisionEnter(Collision other)
 	{
-		if(col.gameObject.tag=="Bullet")
+		if(other.gameObject.tag=="Bullet")
 		{
 			Instantiate (Explo,transform.position,transform.rotation);
-			Destroy (this);
+			Destroy (cu2.gameObject);
 
 		}
 
