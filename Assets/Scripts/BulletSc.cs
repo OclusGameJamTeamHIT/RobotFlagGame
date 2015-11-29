@@ -13,7 +13,7 @@ public class BulletSc: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Z)) {
+		if (Input.GetKeyDown (KeyCode.Z) || Input.GetAxis("Fire1")>0) {
 			Shot ();
 		}
 

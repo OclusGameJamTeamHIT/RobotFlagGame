@@ -10,7 +10,7 @@ public class SceneChanger : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.L)) {
+		if (Input.GetKeyDown (KeyCode.L) || Input.GetAxis("Fire1")>0) {
 			Application.LoadLevel (nextScene);
 		}
 	}
