@@ -13,10 +13,20 @@ public class RobotCtrl : MonoBehaviour {
 
     public float moveforce = 0.1f;
 
+    //サウンド
+    public GameObject jumpObject;
+    public GameObject runObject;
+
+    AudioSource audioSource;
+    AudioSource jumpAudioSource;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         gameOver = false;
+
+        audioSource = runObject.GetComponent<AudioSource>();
+        jumpAudioSource = jumpObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -46,6 +56,11 @@ public class RobotCtrl : MonoBehaviour {
             //testObj.GetComponent<Rigidbody>().AddExplosionForce(500.0f, new Vector3(0, 0.5f, 0), 10.0f);
 
             animator.SetBool("is_running", true);
+
+            if (audioSource.isPlaying == false)
+            {
+                audioSource.Play();
+            }
         }
         else if (Input.GetKey("right") || Input.GetAxis ("Horizontal") > 0)
         {
@@ -56,6 +71,11 @@ public class RobotCtrl : MonoBehaviour {
             transform.Rotate(next);
 
             animator.SetBool("is_running", true);
+
+            if (audioSource.isPlaying == false)
+            {
+                audioSource.Play();
+            }
         }
         else if (Input.GetKey("left") || Input.GetAxis("Horizontal") < 0)
         {
@@ -66,6 +86,11 @@ public class RobotCtrl : MonoBehaviour {
             transform.Rotate(next);
 
             animator.SetBool("is_running", true);
+
+            if (audioSource.isPlaying == false)
+            {
+                audioSource.Play();
+            }
         }
         else if (Input.GetKey("down") || Input.GetAxis("Vertical") < 0)
         {
@@ -78,6 +103,11 @@ public class RobotCtrl : MonoBehaviour {
             //this.GetComponent<Rigidbody>().AddForce(transform.up * jumpforce / 3, ForceMode.Impulse);
 
             animator.SetBool("is_running", true);
+
+            if (audioSource.isPlaying == false)
+            {
+                audioSource.Play();
+            }
         }
         else if (Input.GetKey(KeyCode.J) || Input.GetAxis("Jump") > 0)
         {
@@ -88,6 +118,11 @@ public class RobotCtrl : MonoBehaviour {
 
                 Debug.Log("#### Jump");
                 animator.SetBool("is_jumping", true);
+
+                if (jumpAudioSource.isPlaying == false)
+                {
+                    jumpAudioSource.Play();
+                }
             }
         }
         else
